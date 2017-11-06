@@ -79,7 +79,10 @@ if __name__== "__main__":
 
     # integrate your ODE using scipy.integrate.
     y = integrate.odeint(derivs, state, t)
-
+    print (len(y))
+    print(y.shape)
+    y=np.array([[1,1,1,1],[1,1,1,1]])
+    print(y.shape)
     x1 = L1*sin(y[:, 0])
     y1 = -L1*cos(y[:, 0])
 
@@ -96,11 +99,10 @@ if __name__== "__main__":
     time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
 
-
-    #ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
-     #                             interval=25, blit=True, init_func=init)
-
-    # ani.save('double_pendulum.mp4', fps=15)
-    #plt.show()
+  # ani.save('double_pendulum.mp4', fps=15)
+  #  plt.show()
 
 
+    ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
+                              interval=25, blit=True, init_func=init)
+    plt.show()
