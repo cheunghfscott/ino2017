@@ -69,9 +69,9 @@ if __name__== "__main__":
 
     # th1 and th2 are the initial angles (degrees)
     # w10 and w20 are the initial angular velocities (degrees per second)
-    th1 = 120.0
+    th1 = 0.0
     w1 = 0.0
-    th2 = -10.0
+    th2 = 0.0
     w2 = 0.0
 
     # initial state
@@ -81,16 +81,17 @@ if __name__== "__main__":
     y = integrate.odeint(derivs, state, t)
     print (len(y))
     print(y.shape)
-    y=np.array([[1,1,1,1],[1,1,1,1]])
+    y=np.array([state,state+0.1,state+0.3])
+   # y=np.array([[0.785,1,1,1],[0.785,1,1,1],[0.785,1,1,1]])
     print(y.shape)
-    x1 = L1*sin(y[:, 0])
-    y1 = -L1*cos(y[:, 0])
+    x1 = L1*cos(y[:, 0])
+    y1 = L1*sin(y[:, 0])
 
-    x2 = L2*sin(y[:, 2]) + x1
-    y2 = -L2*cos(y[:, 2]) + y1
+    x2 = L2*cos(y[:, 2]) + x1
+    y2 = L2*sin(y[:, 2]) + y1
 
     fig = plt.figure()
-    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-2, 2), ylim=(-2, 2))
+    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-3, 3), ylim=(-3, 3))
     ax.set_aspect('equal')
     ax.grid()
 
@@ -98,11 +99,7 @@ if __name__== "__main__":
     time_template = 'time = %.1fs'
     time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-
   # ani.save('double_pendulum.mp4', fps=15)
-  #  plt.show()
-
-
     ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
-                              interval=25, blit=True, init_func=init)
+                              interval=150, blit=True, init_func=init)
     plt.show()
