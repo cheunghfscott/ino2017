@@ -122,6 +122,17 @@ if __name__== "__main__":
                               interval=80, blit=True, init_func=init)
 
     plt.figure(2)
-    plt.plot(time,th2d)
+    plt.plot(time, th2d)
+    plt.suptitle("output angle plot ")
+    plt.xlabel("time")
+    plt.ylabel("theta in degree" )
+    
+
+    plt.figure(3)
+    plt.plot(time,x2)
+    plt.suptitle("input distance")
+    plt.xlabel("time")
+    plt.ylabel("Input distance" )
+
 
     plt.show()
