@@ -135,11 +135,11 @@ if __name__ == "__main__":
         #print(x2[i])
     th2d = th2t * (180.0 / np.pi)
     y = th2d
-    print(y2)
+   # print(y2)
     # print(x2)
     # print(y2)
     fig = plt.figure(1)
-    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-3, 3), ylim=(-3, 3))
+    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-1,2), ylim=(-1,1))
     ax.set_aspect('equal')
     ax.grid()
 

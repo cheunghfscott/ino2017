@@ -109,7 +109,7 @@ if __name__== "__main__":
     #print(x2)
     #print(y2)
     fig = plt.figure(1)
-    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-3, 3), ylim=(-3, 3))
+    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-1,2), ylim=(-1,1))
     ax.set_aspect('equal')
     ax.grid()
 
@@ -119,7 +119,7 @@ if __name__== "__main__":
 
   # ani.save('double_pendulum.mp4', fps=15)
     ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
-                              interval=300, blit=True, init_func=init)
+                              interval=100, blit=True, init_func=init)
 
     plt.figure(2)
     plt.plot(time,th2d)
