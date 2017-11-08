@@ -94,7 +94,7 @@ if __name__== "__main__":
 
     th3=arctan((-r2*sin(th2t)/(r1-r2*cos(th2t))))
     th2d=th2t*(180.0/np.pi)
-    print(th2d)
+   # print(th2d)
     #print (len(y))
     #print(y.shape)
     #y=np.array([state,state+0.1,state+0.3])
