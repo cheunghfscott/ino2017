@@ -119,7 +119,7 @@ if __name__== "__main__":
 
   # ani.save('double_pendulum.mp4', fps=15)
     ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
-                              interval=100, blit=True, init_func=init)
+                              interval=80, blit=True, init_func=init)
 
     plt.figure(2)
     plt.plot(time,th2d)
