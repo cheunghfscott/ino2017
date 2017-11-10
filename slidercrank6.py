@@ -1,12 +1,8 @@
 """
 ===========================
-The double pendulum problem
+The slidercrank problem
 ===========================
 
-This animation illustrates the double pendulum problem.
-
-Double pendulum formula translated from the C code at
-http://www.physics.usyd.edu.au/~wheat/dpend_html/solve_dpend.c
 """
 
 from numpy import sin, cos, arctan
@@ -40,7 +36,7 @@ if __name__ == "__main__":
 
     # create a time array from 0..100 sampled at 0.05 second steps
     dt = 0.05
-    td=2.4
+    td=25.0
     t = np.arange(0.0, td, dt)
 
     # th1 and th2 are the initial angles (degrees)
@@ -60,7 +56,7 @@ if __name__ == "__main__":
     # y = integrate.odeint(derivs, state, t)
 
     # define variables
-    time = np.linspace(0.0, 10.0, Num)
+    time = np.linspace(0.0, td, Num)
     x1 = np.zeros(Num)
     y1 = np.zeros(Num)
     x2 = np.zeros(Num)
@@ -75,7 +71,7 @@ if __name__ == "__main__":
     r1 = np.zeros(Num+1)
     r1[0]=1.55*12
     #constant angular speed
-    th2dot=-0.5
+    th2dot=-0.05
 
 
     for i in range(0, Num):
@@ -124,10 +120,10 @@ if __name__ == "__main__":
     time_template = 'time = %.1fs'
     time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
 
-    # ani.save('double_pendulum.mp4', fps=15)
+  #  ani.save('slidercrank', fps=15)
     ani = animation.FuncAnimation(fig, animate, np.arange(1, Num),
-                                  interval=100, blit=True, init_func=init)
-
+                                  interval=10, blit=True, init_func=init)
+    print(time)
     plt.figure(2)
     plt.plot(time, y)
     plt.suptitle("output angle plot ")
