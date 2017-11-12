@@ -56,8 +56,8 @@ def animate(i):
 if __name__== "__main__":
 
     G = 9.8  # acceleration due to gravity, in m/s^2
-    L1 = 1.2  # length of pendulum 1 in m
-    L2 = 1.2  # length of pendulum 2 in m
+    L1 = 0.3  # length of pendulum 1 in m
+    L2 = 1.9  # length of pendulum 2 in m
     M1 = 1.0  # mass of pendulum 1 in kg
     M2 = 1.0  # mass of pendulum 2 in kg
 
@@ -83,7 +83,7 @@ if __name__== "__main__":
     # integrate your ODE using scipy.integrate.
     #y = integrate.odeint(derivs, state, t)
     # input as r1
-    r1=np.linspace(1.7,2,40)
+    r1=np.linspace(1.65,2.0,40)
     time= np.linspace(0.0,10.0,40)
     #position equations
     A=-2*r1*r2*cos(0)
