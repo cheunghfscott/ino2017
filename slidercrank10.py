@@ -65,7 +65,7 @@ if __name__ == "__main__":
     #th2dot = np.zeros(Num)
     th3 = np.zeros(Num)
     th3dot = np.zeros(Num)
-
+    xedot= np.zeros(Num)
     # input as r1 as slider length
     #r1 = np.linspace(1.7, 1.8, Num)
     r1 = np.zeros(Num+1)
@@ -85,11 +85,11 @@ if __name__ == "__main__":
         th3[i] = arctan((-r2 * sin(th2t[i]) / (r1[i] - r2 * cos(th2t[i]))))
         #velocity equations
         th3dot[i] = (-r2*cos(th2t[i])*th2dot)/(r3*cos(th3[i]))
-        xedot = th2dot*r2*(-sin(th2t[i])+sin(th3[i])*cos(th2t[i])/cos(th3[i]))
+        xedot[i] = th2dot*r2*(-sin(th2t[i])+sin(th3[i])*cos(th2t[i])/cos(th3[i]))
 
         #ODE solve with first order
 
-        xe= r1[i] + xedot*dt
+        xe= r1[i] + xedot[i]*dt
         r1[i+1]=xe
 
 
@@ -136,5 +136,12 @@ if __name__ == "__main__":
     plt.suptitle("input distance")
     plt.xlabel("time")
     plt.ylabel("Input distance" )
+ 
+    plt.figure(4)
+    plt.plot(time,xedot)
+    plt.suptitle("input velocity")
+    plt.xlabel("time")
+    plt.ylabel("Input velocity" )
+
 
     plt.show()
