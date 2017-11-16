@@ -29,13 +29,14 @@ def animate(i):
 
 if __name__ == "__main__":
 
-    Muli=3.0
-    L1 = 1.18*Muli  # length of pendulum 1 in m
-    L2 = 2.3*Muli  # length of pendulum 2 in m 
+
+    L1 = 15  # length of pendulum 1 in m
+    L2 = 21.45  # length of pendulum 2 in m
+
 
     # create a time array from 0..100 sampled at 0.05 second steps
     dt = 0.05
-    td=14.0
+    td=30.0
     t = np.arange(0.0, td, dt)
 
     # th1 and th2 are the initial angles (degrees)
@@ -68,9 +69,9 @@ if __name__ == "__main__":
     # input as r1 as slider length
     #r1 = np.linspace(1.7, 1.8, Num)
     r1 = np.zeros(Num+1)
-    r1[0]=1.6*Muli
+    r1[0]=10
     #constant angular speed
-    th2dot=-0.1
+    th2dot=-0.05
 
 
     for i in range(0, Num):
@@ -111,7 +112,7 @@ if __name__ == "__main__":
     # print(x2)
     # print(y2)
     fig = plt.figure(1)
-    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-3,10), ylim=(-1,5))
+    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-10,30), ylim=(-1,20))
     ax.set_aspect('equal')
     ax.grid()
 
